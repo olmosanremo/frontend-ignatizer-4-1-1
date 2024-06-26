@@ -1,0 +1,35 @@
+/* App.css */
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .main-container {
+
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .canvas-container {
+
+    width: 100%;
+  }
+
+  canvas {
+    width: 95%;
+    /*margin: auto;*/
+  }
+
+
+
+}
+
+@media (max-width: 480px) {
+
+}
+
+
+
+
