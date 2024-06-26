@@ -8,7 +8,7 @@ const DrawingList = ({ drawings, onLoad, onDelete }) => {
     );
 
     return (
-        <div className="load-drawing-modal">
+        <div className="load-drawing-modal" style={{ maxHeight: '90vh', overflowY: 'auto' }}>
             <h2>All Drawings</h2>
             <input
                 type="text"
@@ -16,7 +16,7 @@ const DrawingList = ({ drawings, onLoad, onDelete }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <ul>
+            <ul style={{ maxHeight: '80vh', overflowY: 'auto' }}>
                 {filteredDrawings.map(drawing => (
                     <li key={drawing._id} onClick={() => onLoad(drawing._id)} style={{ cursor: 'pointer' }}>
                         {drawing.name} (ID: {drawing._id})

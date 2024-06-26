@@ -30,6 +30,39 @@
 
 }
 
+.load-drawing-modal {
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1em;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.load-drawing-modal ul {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.load-drawing-modal li {
+  padding: 0.5em;
+  border-bottom: 1px solid #ddd;
+}
+
+.load-drawing-modal li:last-child {
+  border-bottom: none;
+}
+
+.load-drawing-modal input[type="text"] {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
 
 
 
