@@ -8,7 +8,7 @@ const DrawingList = ({ drawings, onLoad, onDelete }) => {
     );
 
     return (
-        <div>
+        <div className="load-drawing-modal">
             <h2>All Drawings</h2>
             <input
                 type="text"
