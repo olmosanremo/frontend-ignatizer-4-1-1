@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import MinimalDrawingCanvas from './components/MinimalDrawingCanvas';
-import ControlPanel from './components/ControlPanel';
+import ColorPanel from './components/ColorPanel.jsx';
 import DrawingList from './components/DrawingList';
 import SplashScreen from './components/SplashScreen';
 import SoundControls from './components/SoundControls';
 import SaveClearButtons from './components/SaveClearButtons';
 import TrackNameInput from './components/TrackNameInput'; // Import the new component
 import * as Tone from 'tone';
-import { saveDrawing, loadDrawing, updateDrawing, getAllDrawings, deleteDrawing } from './backendApi/api';
+import {saveDrawing, loadDrawing, updateDrawing, getAllDrawings, deleteDrawing} from './backendApi/api';
 import './App.css';
 
 const App = () => {
-    const [lines, setLines] = useState({ red: [], yellow: [], green: [] });
+    const [lines, setLines] = useState({red: [], yellow: [], green: []});
     const [color, setColor] = useState('red');
     const [isErasing, setIsErasing] = useState(false);
     const [trackName, setTrackName] = useState('');
@@ -99,7 +99,7 @@ const App = () => {
     };
 
     const clearDrawing = () => {
-        setLines({ red: [], yellow: [], green: [] });
+        setLines({red: [], yellow: [], green: []});
     };
 
     const playPauseSound = () => {
@@ -184,7 +184,7 @@ const App = () => {
 
     return (
         <div className="main-container">
-            {showSplash && <SplashScreen />}
+            {showSplash && <SplashScreen/>}
             {!showSplash && (
                 <>
                     {isDrawingListVisible && (
@@ -199,17 +199,24 @@ const App = () => {
                             </div>
                         </div>
                     )}
-                    <SoundControls
-                        isPlaying={isPlaying}
-                        playPauseSound={playPauseSound}
-                        stopSound={stopSound}
-                        handleSave={handleSave}
-                        setIsDrawingListVisible={setIsDrawingListVisible}
-                    />
-                    <SaveClearButtons clearDrawing={clearDrawing} toggleEraseMode={toggleEraseMode} isErasing={isErasing} />
-                    <ControlPanel setColor={setColor} />
-                    <TrackNameInput trackName={trackName} setTrackName={setTrackName} />
-                    <MinimalDrawingCanvas canvasRef={canvasRef} lines={lines} setLines={setLines} color={color} isErasing={isErasing} width={windowWidth} />
+                    <div className="controller-container">
+
+                        <SoundControls
+                            isPlaying={isPlaying}
+                            playPauseSound={playPauseSound}
+                            stopSound={stopSound}
+                            handleSave={handleSave}
+                            setIsDrawingListVisible={setIsDrawingListVisible}
+                        />
+                        <SaveClearButtons clearDrawing={clearDrawing} toggleEraseMode={toggleEraseMode}
+                                          isErasing={isErasing}/>
+                        <ColorPanel setColor={setColor}/>
+                        <TrackNameInput trackName={trackName} setTrackName={setTrackName}/>
+
+                    </div>
+
+                    <MinimalDrawingCanvas canvasRef={canvasRef} lines={lines} setLines={setLines} color={color}
+                                          isErasing={isErasing} width={windowWidth}/>
                 </>
             )}
         </div>

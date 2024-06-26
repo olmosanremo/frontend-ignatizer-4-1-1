@@ -391,6 +391,7 @@ const MinimalDrawingCanvas = ({ canvasRef, lines, setLines, color, isErasing, wi
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         context.fillStyle = 'white';
+        context.lineWidth = 3;
         context.fillRect(0, 0, canvas.width, canvas.height);
         drawAllLines(lines, canvas);
     }, [canvasRef, lines]);
@@ -493,7 +494,7 @@ const MinimalDrawingCanvas = ({ canvasRef, lines, setLines, color, isErasing, wi
                 ref={canvasRef}
                 width={width}
                 height={width} //the canvas ratio should always be 1:1 therefore height = width
-                style={{ border: '1px solid black' }}
+                // style={{ border: '1px solid black' }}
                 onMouseDown={startDrawing}
                 onMouseUp={endDrawing}
                 onMouseMove={draw}

@@ -8,11 +8,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #282c34;
-    color: white;
+    background-color: #000000;
+    color: #f5fd1b;
     font-size: 24px;
     z-index: 1000;
-    animation: fadeOut 2s forwards; /* 2 Sekunden Animation */
+    animation: fadeOut 3s forwards; /* 2 Sekunden Animation */
 }
 
 @keyframes fadeOut {
